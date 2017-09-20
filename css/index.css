@@ -1,0 +1,44 @@
+.martop15{margin-top:15px}
+
+body{text-align:center} 
+
+/*banner swiper 首页顶部滑动图片展示区*/
+.banner img{width:100%;height: 190px}
+.bannerswiper{height:190px}
+.swiper-container,.hotswiper{margin:0 auto;position:relative;overflow:hidden;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;z-index:1;text-align:center}
+.swiper-wrapper{position:relative;width:100%;-webkit-transition-property:-webkit-transform,left,top;-webkit-transition-duration:0s;-webkit-transform:translate3d(0px,0,0);-webkit-transition-timing-function:ease;-moz-transition-property:-moz-transform,left,top;-moz-transition-duration:0s;-moz-transform:translate3d(0px,0,0);-moz-transition-timing-function:ease;-o-transition-property:-o-transform,left,top;-o-transition-duration:0s;-o-transform:translate3d(0px,0,0);-o-transition-timing-function:ease;-o-transform:translate(0px,0px);-ms-transition-property:-ms-transform,left,top;-ms-transition-duration:0s;-ms-transform:translate3d(0px,0,0);-ms-transition-timing-function:ease;transition-property:transform,left,top;transition-duration:0s;transform:translate3d(0px,0,0);transition-timing-function:ease}
+.swiper-free-mode > .swiper-wrapper{-webkit-transition-timing-function:ease-out;-moz-transition-timing-function:ease-out;-ms-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;margin:0 auto}
+.swiper-slide{float:left}
+.swiper-wp8-horizontal{-ms-touch-action:pan-y}
+.swiper-wp8-vertical{-ms-touch-action:pan-x}
+.pagination{position:absolute;z-index:20;left:40%;bottom:10px}
+.swiper-pagination-switch{display:inline-block;width:15px;height:5px;border-radius:2px;background:#08488B;margin-right:5px;opacity:0.8;border:1px solid #ccc;cursor:pointer}
+.swiper-active-switch{background:#fff;border:1px solid #444}
+
+/*图片上传页顶部图片展示区*/
+.headimg {background-image:url('../img/head/1.jpg');background-repeat:no-repeat;background-size:100% 100%; margin:5px auto;}
+
+/*程序logo和功能介绍区*/
+.desclogo {background-image:url('../img/head/logo.jpg');background-repeat:no-repeat;background-size:100% 100%; height: 90px; max-width:500px;margin:5px auto;}
+
+
+/*程序功能左右两列按钮样式*/
+.indexsub {max-height: 500px; max-width:500px;  margin:0 auto;}
+.indexsub ul {margin:0 40px;}
+.indexsub li {width:50%;float:left}
+.indexsub .subtype {height:30px;margin:5px;color:#fff;padding:10px;position:relative;text-align: center}
+.btn1 .subtype{background-image:url('../pic/goalexpress.png');background-repeat:no-repeat;background-size:100% 100%;}
+.btn2 .subtype{background-image:url('../pic/deposit.png');background-repeat:no-repeat;background-size:100% 100%;}
+.btn3 .subtype{background-image:url('../pic/redgoal.png');background-repeat:no-repeat;background-size:100% 100%;}
+.btn4 .subtype{background-image:url('../pic/bluegoal.png');background-repeat:no-repeat;background-size:100% 100%;}
+.btn5 .subtype{background-image:url('../pic/teamindex.png');background-repeat:no-repeat;background-size:100% 100%;}
+.btn6 .subtype{background-image:url('../pic/valueplayer.png');background-repeat:no-repeat;background-size:100% 100%;}
+
+
+/*底部的横向可左右滑动热门推荐商品信息栏样式*/
+.titlestyle{margin:10px 10px 0 10px;box-shadow:0px 0px 4px #eee;border-radius:4px;-webkit-border-radius:4px;overflow:hidden;padding:5px;border-bottom:2px solid #1ACBFC;border-top:1px solid #EDEDED;font-size:14px;font-weight:bold;zoom:1;background:#f8f8f8}
+.titlestyle span {color:#666;font-weight:normal}
+.indexgoodslist ul{margin-left:10px;overflow:hidden;padding:5px 0}
+.hotswiper{height:60px}
+.indexgoodslist li{width:75px;float:left;margin:0px 5px 0 0;overflow:hidden}
+.indexgoodslist a{padding:1px;display:block}

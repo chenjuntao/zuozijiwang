@@ -1,0 +1,78 @@
+<style type="text/css">
+    
+#narbar{position:fixed;width:100%;left:0;bottom:0;z-index:999;height:45px;background-color:#EAEAEA;border-bottom:1px solid #ccc;background-image:-webkit-gradient(linear,left top,left bottom,from(#FFFFFF),to(#EAEAEA));background-image:-webkit-linear-gradient(top,#FFFFFF,#EAEAEA);background-image:-moz-linear-gradient(top,#FFFFFF,#EAEAEA);background-image:-ms-linear-gradient(top,#FFFFFF,#EAEAEA);background-image:-o-linear-gradient(top,#FFFFFF,#EAEAEA);background:linear-gradient(to bottom,#FFFFFF,#EAEAEA);box-shadow:-1px -1px 3px #ccc;min-width:320px}
+.hewarp li{float:left;padding:0 5px;width:22%;text-align:center;margin:0 auto}
+.hewarp li a,.hewarp li span{display:block;font-size:11px;height:45px;width:100%}
+.hewarp li img{width:25px;display:block;margin:0 auto;padding-top:2px}
+</style>
+
+<!-- footer navigation bar -->
+
+<div id="narbar">
+    <div class="hewarp">
+        <ul>
+            <li class="index">
+                <a href="#" title="首页" onclick="gohome();">
+                <img src="pic/home.png" alt=""/>
+                首 页
+                </a>
+            </li>
+            <li>
+                <a href="#" title="上传方案" onclick="dlfile('续期方案','download/schema.pdf');">
+                <img src="pic/schema.png" alt=""/>
+                方 案
+                </a>
+            </li>
+            <li class="narcar">
+                <a href="#"  title="查看继续率报表" onclick="dlfile('继续率报表','download/report.xlsx');">
+                <img src="pic/report.png" alt=""/>
+                报 表
+                </a>
+            </li>
+            <li class="narcar">
+                <a href="#" title="管理员登陆上传图片" onclick="login();">
+                <img src="pic/admin.png" alt=""/>
+                管 理
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function gohome(){
+        $("#dlgContent").css("display","none");
+        $("#myContent").css("display","block");
+    }
+    function login(){
+        // 判断是否是手机端登陆
+        var ua = navigator.userAgent;
+        var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+        isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+        isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+        isMobile = isIphone || isAndroid;
+        if(isMobile) {
+            alert('管理员请在电脑PC端登陆！')
+        }else{
+            htmlobj=$.ajax({url:"login",async:false});
+            $("#dlgContent").html(htmlobj.responseText);
+            $("#dlgContent").css("display","block");
+            $("#myContent").css("display","none");
+        }
+    }
+    function dlfile(filename, fileurl) {
+        var r=confirm("您确定要下载" + filename + "文件?");
+        if (r==true) {
+            if (typeof (narbar.iframe) == "undefined"){
+                var iframe = document.createElement("iframe");
+                narbar.iframe = iframe;
+                document.body.appendChild(narbar.iframe);
+            }
+            narbar.iframe.src = fileurl;
+            narbar.iframe.style.display = "none";
+        }
+    }
+
+</script>
+
+<!-- footer navigation bar END -->

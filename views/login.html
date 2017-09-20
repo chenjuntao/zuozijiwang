@@ -1,0 +1,189 @@
+<div>
+    <br/>
+    <br/>
+    <h1>登陆管理界面可以上传每日战报</h1>
+    <br/>
+    <br/>
+    请输入管理员密码：
+    <input type="password" id="txtpwd"></input>
+    <br/>
+    <br/>
+    <button class="btnok" onclick="validpwd()">登陆</button>
+    <br/>
+    <br/>
+</div>
+<hr />
+<div>
+    <br/>
+    <h1>网站访问量统计</h1>
+    
+    <a href="javascript:openClosePV();" >
+        <img id="pveye" src="pic/eye_close.png" width="30px" height="20px" />
+    </a>
+    <div id="pvcontent" style="visibility:hidden;">
+        今日访问量：
+        <span id="pvToday"></span>
+        <br/>
+        最近一周访问量：
+        <span id="pvWeek"></span>
+        <br/>
+        最近一个月访问量：
+        <span id="pvMonth"></span>
+        <br/>
+        历史总访问量：
+        <span id="pvAll"></span>
+        <br/>
+        平均每天访问量：
+        <span id="pvAverage"></span>
+        <br/>
+        单日最大访问量：
+        <span id="pvMax"></span>
+        (<span id="pvMaxDay"></span>)
+    <div>
+    <h1>
+        <a href="javascript:openPVHistory();" style="color: blue;">查看历史曲线</a>
+    </h1>
+    <br/>
+    <div id="pvhistory" style="visibility:hidden;">
+        <button id='btntoday' class="btnok" onclick="pvtoday()">当天</button>
+        <button id='btnweek' class="btncancel" onclick="pvweek()">近一周</button>
+        <button id='btnmonth' class="btncancel" onclick="pvmonth()">近一月</button>
+        <button id='btnall' class="btncancel" onclick="pvall()">全部</button>
+        <div id="pvline" style="height: 400px;">
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>
+
+<script type="text/javascript">
+//验证密码
+function validpwd(){
+	var formData = new FormData();
+	formData.append("pwd",$("#txtpwd").val());
+	$.ajax({  
+	    url: 'validpwd',  
+	    type: 'POST',  
+	    data:formData,  
+	    processData : false, // 告诉jQuery不要去处理发送的数据
+	    contentType : false, // 告诉jQuery不要去设置Content-Type请求头
+	    error: function(errStr){
+	        alert(errStr);
+	    },  
+	    success: function(result){
+	        if(result == 'err')
+	        	alert('密码不正确！'); 
+	        else
+	            $("#dlgContent").html(result);
+	    }
+	});
+}
+
+//获取网站访问量数据
+function openClosePV() {
+    if ($('#pvcontent').css('visibility') == 'hidden') {
+        var formData = new FormData();
+        formData.append("pwd",$("#txtpwd").val());
+        $.ajax({  
+            url: 'getpv',  
+            type: 'POST',  
+            data:formData,  
+            processData : false, // 告诉jQuery不要去处理发送的数据
+            contentType : false, // 告诉jQuery不要去设置Content-Type请求头
+            error: function(errStr){
+                alert(errStr);
+            },  
+            success: function(result){
+                if(result == 'err'){
+                    alert('输入密码才能查看！'); 
+                }else{
+                    $('#pveye').attr('src','pic/eye_open.png');
+                    $('#pvcontent').css('visibility','visible');
+                    var pv = result;
+                    $("#pvToday").html(pv.pvToday);
+                    $("#pvWeek").html(pv.pvWeek);
+                    $("#pvMonth").html(pv.pvMonth);
+                    $("#pvAll").html(pv.pvAll);
+                    $('#pvAverage').html(pv.pvAverage);
+                    $("#pvMax").html(pv.pvMax);
+                    $("#pvMaxDay").html(pv.pvMaxDay);
+                }
+            }
+        });
+    }else{
+       $('#pveye').attr('src','pic/eye_close.png');
+       $('#pvcontent').css('visibility','hidden');
+    }
+}
+
+// //打开PV历史曲线
+function openPVHistory(){
+    $("#pvline").html('正在加载图表，请稍侯。。。');
+    var script = document.createElement('script');
+    script.src = 'js/plotly-basic-1.28.3.min.js';
+    document.head.appendChild(script);
+    
+    $('#pvhistory').css('visibility','visible');
+    pvLine('today');
+}
+
+function pvtoday() {
+    $('#btntoday').attr('class','btnok');
+    $('#btnweek').attr('class','btncancel');
+    $('#btnmonth').attr('class','btncancel');
+    $('#btnall').attr('class','btncancel');
+    pvLine('today');
+}
+
+function pvweek() {
+    $('#btntoday').attr('class','btncancel');
+    $('#btnweek').attr('class','btnok');
+    $('#btnmonth').attr('class','btncancel');
+    $('#btnall').attr('class','btncancel');
+    pvLine('week');
+}
+
+function pvmonth() {
+    $('#btntoday').attr('class','btncancel');
+    $('#btnweek').attr('class','btncancel');
+    $('#btnmonth').attr('class','btnok');
+    $('#btnall').attr('class','btncancel');
+    pvLine('month');
+}
+
+function pvall() {
+    $('#btntoday').attr('class','btncancel');
+    $('#btnweek').attr('class','btncancel');
+    $('#btnmonth').attr('class','btncancel');
+    $('#btnall').attr('class','btnok');
+    pvLine('all');
+}
+
+//获取PV历史曲线
+function pvLine(lineType){
+    $.ajax({  
+        url: 'pvline/' + lineType,  
+        type: 'GET',  
+        processData : false, // 告诉jQuery不要去处理发送的数据
+        contentType : false, // 告诉jQuery不要去设置Content-Type请求头
+        beforeSend: function(){
+            $("#pvline").html('正在加载图表，请稍侯。。。');
+        },
+        error: function(errStr){
+            alert(errStr);
+        }, 
+        success: function(result){
+            if(result == 'err')
+                alert('密码不正确！'); 
+            else
+            // $.getScript('js/plotly-basic-1.28.3.min.js', function(){
+            //     //Plotly库较大，所以需要按需加载
+                $("#pvline").html('');
+                var data = JSON.parse(result); //由JSON字符串转换为JSON对象
+                Plotly.newPlot('pvline', data);
+            // });
+        }
+    }); 
+}
+
+</script>

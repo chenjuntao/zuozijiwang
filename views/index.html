@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>富德生命人寿湘分续期</title>
+        <meta name="keywords" content="富德生命 湘分续期 争霸赛" />
+        <meta name="description" content="富德生命人寿湘分续期2017年争霸赛" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+
+        <link href="css/common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <link href="css/bgmusic.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/idangerous.swiper-2.1.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/js.js"></script>
+</head>
+
+<body>
+
+    %include('footnavbar')
+
+    <a href="javascript:playPause();" class="musicbtn">
+        <img src="pic/bgmusic.png" id="music_btn" class="rotate" width="30px" height="30px" />
+    </a>
+
+    <script type="text/javascript">
+        function contentClick(contentPic){
+            htmlobj=$.ajax({url:"/contentPic?myImg="+contentPic,async:false});
+            $("#dlgContent").html(htmlobj.responseText);
+            $("#dlgContent").css("display","block");
+            $("#myContent").css("display","none");
+        }
+        function gohometoday(){
+            htmlobj=$.ajax({url:"/homeToday",async:false});
+            $("#myContent").html(htmlobj.responseText);
+        }
+        function gohomehistory(datenum){
+            htmlobj=$.ajax({url:"/homeHistory?datenum="+datenum,async:false});
+            $("#myContent").html(htmlobj.responseText);
+        }
+
+        //解决IPhone手机无法自动播放的问题
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            var music = document.getElementById("bgMusic");
+            music.setAttribute("src","bgmusic.mp3");
+            music.play();  
+        }, false); 
+
+        //控制音乐播放与暂停
+        function playPause() {
+            var music = document.getElementById('bgMusic');
+            if (music.paused){
+                music.play();
+                $("#music_btn").addClass('rotate');
+            }
+            else{
+                music.pause();
+                $("#music_btn").removeClass('rotate');
+            }
+        }
+    </script>
+
+    <div id="dlgContent" style="display:none;">当前没有上传图片</div>
+    <div id='myContent'>
+        %include('home')
+    </div>
+
+    <audio autoplay="autoplay" id="bgMusic" loop="loop"> <source src="bgmusic.mp3"/></audio>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>富德生命人寿湘分续期</title>
+        <meta name="keywords" content="富德生命 湘分续期 争霸赛" />
+        <meta name="description" content="富德生命人寿湘分续期2017年争霸赛" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <meta content="telephone=no" name="format-detection" />
+
+        <link href="css/common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    </head>
+    <body>  
+
+    <!-- banner图片滑动区域 -->
+    <div class="bgstyle banner bannerswiper headimg">
+        <span>页面顶端滑动图片上传</span>
+        <br />
+        <input type="file" id="uphead1" onchange="checkImg(this,tiphead1,btnhead1)" />
+        <input class="msubm radius5" type="button" value="上传" id="btnhead1" style="display:none" 
+        onclick="uploadImg('uploadok/head_1',uphead1,tiphead1)" />
+        <span style="color:red" id="tiphead1"></span>
+        <br />
+        <input type="file" id="uphead2" onchange="checkImg(this,tiphead2,btnhead2)" />
+        <input class="msubm radius5" type="button" value="上传" id="btnhead2" style="display:none"
+        onclick="uploadImg('uploadok/head_2',uphead2,tiphead2)" />
+        <span style="color:red" id="tiphead2"></span>
+        <br />
+        <input type="file" id="uphead3" onchange="checkImg(this,tiphead3,btnhead3)" /> 
+        <input class="msubm radius5" type="button" value="上传" id="btnhead3" style="display:none"
+        onclick="uploadImg('uploadok/head_3',uphead3,tiphead3)" />
+        <span style="color:red" id="tiphead3"></span>
+        <br />
+        <input type="file" id="uphead4" onchange="checkImg(this,tiphead4,btnhead4)" /> 
+        <input class="msubm radius5" type="button" value="上传" id="btnhead4" style="display:none"
+        onclick="uploadImg('uploadok/head_4',uphead4,tiphead4)" />
+        <span style="color:red" id="tiphead4"></span>
+    </div>
+    <!-- banner图片滑动区域 END -->
+
+	<!-- 程序logo和功能介绍区 -->
+    <div class="clearfix bgstyle desclogo">
+            上传logo区域图片：
+            <input type="file" id="uplogo" onchange="checkImg(this,tiplogo,btnlogo)" /> 
+            <input class="msubm radius5" type="button" value="上传" id="btnlogo" style="display:none"
+            onclick="uploadImg('uploadok/logo',uplogo,tiplogo)" />
+            <span style="color:red" id="tiplogo"></span>
+            <br />
+            上传方案pdf文件：
+            <input type="file" id="upschema" onchange="checkSchema(this,tipschema,btnschema)" /> 
+            <input class="msubm radius5" type="button" value="上传" id="btnschema" style="display:none"
+            onclick="uploadImg('uploadok/schema',upschema,tipschema)" />
+            <span style="color:red" id="tipschema"></span>
+            <br />
+            上传继续率报表：
+            <input type="file" id="upreport" onchange="checkReport(this,tipreport,btnreport)" /> 
+            <input class="msubm radius5" type="button" value="上传" id="btnreport" style="display:none"
+            onclick="uploadImg('uploadok/report',upreport,tipreport)" />
+            <span style="color:red" id="tipreport"></span>
+    </div>
+    <!-- 程序logo和功能介绍区 END -->
+
+    <!-- 栏目 -->
+    <div class="bgstyle indexsub radius5">
+        <ul>
+            <li class="btn1">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent1" onchange="checkImg(this,tipcontent1,btncontent1)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent1" style="display:none"
+                    onclick="uploadImg('uploadok/content_1',upcontent1,tipcontent1)" />
+                    <span style="color:white" id="tipcontent1"/>
+                </div>
+            </li>
+            <li class="btn2">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent2" onchange="checkImg(this,tipcontent2,btncontent2)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent2" style="display:none"
+                    onclick="uploadImg('uploadok/content_2',upcontent2,tipcontent2)" />
+                    <span style="color:white" id="tipcontent2"/>
+                </div>
+            </li>
+            <li class="btn3">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent3" onchange="checkImg(this,tipcontent3,btncontent3)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent3" style="display:none"
+                    onclick="uploadImg('uploadok/content_3',upcontent3,tipcontent3)" />
+                    <span style="color:white" id="tipcontent3"/>
+                </div>
+            </li>
+            <li class="btn4">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent4" onchange="checkImg(this,tipcontent4,btncontent4)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent4" style="display:none"
+                    onclick="uploadImg('uploadok/content_4',upcontent4,tipcontent4)" />
+                    <span style="color:white" id="tipcontent4"/>
+                </div>
+            </li>
+            <li class="btn5">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent5" onchange="checkImg(this,tipcontent5,btncontent5)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent5" style="display:none"
+                    onclick="uploadImg('uploadok/content_5',upcontent5,tipcontent5)" />
+                    <span style="color:white" id="tipcontent5"/>
+                </div>
+            </li>
+            <li class="btn6">
+                <div class="subtype radius5" style="height:80px">
+                    <input type="file" id="upcontent6" onchange="checkImg(this,tipcontent6,btncontent6)" /> 
+                    <br/>
+                    <input class="msubm radius5" type="button" value="上传" id="btncontent6" style="display:none"
+                    onclick="uploadImg('uploadok/content_6',upcontent6,tipcontent6)" />
+                    <span style="color:white" id="tipcontent6"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 栏目 END -->
+
+    <div class="clear martop15"   style="margin-bottom: 20px">
+        <input class="btnok radius5" type="button" value="返回首页" onclick="javascript:window.location='/index'" />
+        <input class="btncancel radius5" type="reset" value="清 除"/>
+    </div>
+
+    <script type="text/javascript">
+        /* 
+         * 判断图片类型、大小
+         */ 
+        function checkImg(imgfile, tip, btn){
+            if(imgfile.files){
+                var img = imgfile.files.item(0);
+                if(img.type != "image/jpeg"){
+                    tip.innerText="图片类型必须是jpg类型！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                } else if (img.size > 1024 * 1024 * 1){  //小于1M
+                    tip.innerText="图片大小不能大于1M！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                }else{
+                     tip.innerText="";
+                     btn.style.display = "";
+                }
+            }
+        }
+
+          /* 
+         * 判断pdf类型、大小
+         */ 
+        function checkSchema(imgfile, tip, btn){
+            if(imgfile.files){
+                var img = imgfile.files.item(0);
+                if(img.type != "application/pdf"){
+                    tip.innerText="文件类型必须是pdf类型！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                } else if (img.size > 1024 * 1024 * 10){  //小于10M
+                    tip.innerText="文件大小不能大于10M！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                }else{
+                     tip.innerText="";
+                     btn.style.display = "";
+                }
+            }
+        }
+
+
+        /* 
+         * 判断xlsx类型、大小
+         */ 
+        function checkReport(imgfile, tip, btn){
+            if(imgfile.files){
+                var img = imgfile.files.item(0);
+                if(img.type != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
+                    tip.innerText="文件类型必须是xlsx类型！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                } else if (img.size > 1024 * 1024 * 10){  //小于10M
+                    tip.innerText="文件大小不能大于10M！";
+                    imgfile.value = "";
+                    btn.style.display = "none";
+                }else{
+                     tip.innerText="";
+                     btn.style.display = "";
+                }
+            }
+        }
+
+       
+        function uploadImg(url,imgfile,tip){
+            var formData = new FormData();
+            formData.append("file",imgfile.files[0]);
+            // formData.append("name",$("#input1").val());
+            $.ajax({ 
+                url : url, 
+                type : 'POST', 
+                data : formData, 
+                processData : false, // 告诉jQuery不要去处理发送的数据
+                contentType : false, // 告诉jQuery不要去设置Content-Type请求头
+                beforeSend:function(){
+                    tip.innerText="正在上传，请稍候。。。";
+                },
+                success : function(responseStr) { 
+                    tip.innerText=responseStr;
+                }, 
+                error : function(responseStr) { 
+                    tip.innerText="错误:"+responseStr.statusText;
+                } 
+            });
+        }
+    </script>
+
+    </body>
+</html>

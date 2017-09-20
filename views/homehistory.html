@@ -1,0 +1,94 @@
+
+    <div class="bgstyle indexsub radius5">
+    <br/>
+    <h1 style="font-size: 200%">历史战报：{{datenum}}</h1>
+    <br/>
+    <button class="btnok" onclick="gohometoday()">返回今日战报</button>
+    <br/>
+    <br/>
+    </div>
+
+    <!-- 程序logo和功能介绍区 -->
+    <div class="clearfix bgstyle martop15 desclogo">
+    </div>
+    <!-- 程序logo和功能介绍区 END -->
+
+    <!-- 栏目 -->
+    <div class="bgstyle indexsub radius5">
+        <ul>
+            <li class="btn1">
+            <a a href="#" onclick="javascript:contentClick({{datenum}}+'_1')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+            <li class="btn2">
+            <a a href="#" onclick="javascript:contentClick({{datenum}}+'_2')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+            <li class="btn3">
+            <a a href="#" onclick="javascript:contentClick({{datenum}}+'_3')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+            <li class="btn4">
+            <a a href="#" onclick="javascript:contentClick({{datenum}}+'_4')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+            <li class="btn5">
+            <a href="#" onclick="javascript:contentClick({{datenum}}+'_5')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+            <li class="btn6">
+            <a href="#" onclick="javascript:contentClick({{datenum}}+'_6')">
+                <div class="subtype radius5">
+                </div></a>
+            </li>
+        </ul>
+    </div>
+    <!-- 栏目 END -->
+
+    <!-- 热门商品 -->
+    <div style="margin-bottom: 5px">
+        <div class="titlestyle">
+            <strong class="floatleft">往期战况回顾</strong>
+            <span class="floatleft">（可左右两边划动）</span>
+        </div>
+        <div class="indexgoodslist clearfix">
+            <div class="hotswiper">
+                <ul class="swiper-wrapper">
+                    %for datenum1 in datenumLst:
+                    <li class="swiper-slide bgstyle">
+                        <a href="#" onclick="javascript:gohomehistory({{datenum1}})">
+                        <span class="name">{{datenum1}}</span>
+                        <span class="name">点击查看</span>
+                        </a>
+                    </li>
+                    % end
+                    <li class="swiper-slide bgstyle">
+                        <a href="#" onclick="javascript:alert('功能正在开发中')">
+                        <span class="name">更多记录</span>
+                        <span class="name">点击查看</span>
+                        </a>
+                    </li>
+                    <!-- 最后一个显示不出来，加一个空的项 -->
+                    <li class="swiper-slide bgstyle">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 热门商品 END -->
+    <br/>
+    <br/>
+    <script type="text/javascript">
+        //页面底部的滑动图片效果
+        var mySwiper = new Swiper('.hotswiper',{
+        paginationClickable: true,
+            slidesPerView: 'auto'
+        });
+    </script>
+
+
